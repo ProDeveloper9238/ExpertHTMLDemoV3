@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "utf-8">
+		<link href = "style.css" rel = "stylesheet">
+		<title>ExpertHTML</title>
+		<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+		<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	</head>
+	<body>
+		<!--BUTTONS-->
+		<table class = "mainButtonTable">
+			<tr>
+				<td class = "mainButtonTableData"><div class = "mainButtonLeft"><ion-icon name="book-outline"></ion-icon><br>Teoria</div></td>
+				<td class = "mainButtonTableData"><div class = "mainButtonRight"><ion-icon name="document-text-outline"></ion-icon><br>Tasks</div></td>
+			</tr>
+		</table>
+		<!--BUTTONS-->
+
+		<!--TASKS-->
+		<table class = "tasksTable">
+			<tr>
+				<td>
+					<div class = "tasks">
+						<script>
+							let taskNum = 0;
+							const answers = ["meta", "html", "!DOCTYPE html"]
+
+							function submit() {
+								const answer = document.getElementById("answer").value;
+								if (answers[taskNum] === answer) {
+									taskNum = taskNum + 1;
+									//console.log(taskNum);
+									changeCode();
+								}
+							}
+
+							function changeCode() {
+								codeExamples = 
+[` &lt;!DOCTYPE html&gt;
+ &lt;<input class = "answer" type = "text" maxlength = "4" id = "answer"> lang = "en"&gt;
+    &lt;head&gt;
+       &lt;meta charset = "utf-8"&gt;
+       &lt;title&gt;&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+    &lt;/body&gt;
+ &lt;/html&gt;`,
+
+ ` &lt;<input class = "answer" style = "width:135px;" type = "text" maxlength = "13" id = "answer">&gt;
+ &lt;html lang = "en"&gt;
+    &lt;head&gt;
+       &lt;meta charset = "utf-8"&gt;
+       &lt;title&gt;&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+    &lt;/body&gt;
+ &lt;/html&gt;`];
+ 								document.getElementById("code").innerHTML = codeExamples[taskNum - 1];
+							}
+						</script>
+						<pre id = "code">
+ &lt;!DOCTYPE html&gt;
+ &lt;html lang = "en"&gt;
+    &lt;head&gt;
+       &lt;<input class = "answer" type = "text" maxlength = "4" id = "answer"> charset = "utf-8"&gt;
+       &lt;title&gt;&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+    &lt;/body&gt;
+ &lt;/html&gt;</pre>
+					</div>
+				</td>
+				<td class = "buttonTasksTableData">
+					<div onclick = "submit();" class = "submit">Submit</div>
+				</td>
+			</tr>
+		</table>
+		<!--TASKS-->
+	</body>
+</html>
